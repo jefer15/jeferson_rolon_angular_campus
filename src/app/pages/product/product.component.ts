@@ -28,6 +28,7 @@ export class ProductComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'description', 'price', 'category', 'available', 'actions'];
   dataSource: MatTableDataSource<any> = new MatTableDataSource();
   @ViewChild(MatSort) sort!: MatSort;
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(
     private _productService: ProductService,
@@ -37,9 +38,14 @@ export class ProductComponent implements OnInit {
     this.getProducts();
   }
 
-  getProducts() {
-    this.dataSource.data = this._productService.getProducts();
-    console.log(this.dataSource.data);
+  getProducts(filter?: string) {
+    let products = this._productService.getProducts();
+
+    if (filter) {
+      products = products.filter(product => product.category.toLowerCase() === filter.toLowerCase());
+    }
+
+    this.dataSource.data = products;
   }
 
   addProduct() {

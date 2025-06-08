@@ -1,10 +1,38 @@
 <div class="p-6 space-y-6 bg-gray-300 min-h-screen">
   <div class="flex justify-between items-center mb-6">
     <button mat-raised-button (click)="addProduct()"
-      class="bg-[#4b5172] hover:bg-[#3d4259] text-white px-6 py-3 rounded-lg flex items-center shadow-md transition duration-300 ease-in-out transform hover:scale-105">
+      class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg flex items-center shadow-md transition duration-300 ease-in-out transform hover:scale-105">
       <mat-icon>add</mat-icon>
       <span class="ml-2">Añadir Producto</span>
     </button>
+
+    <div class="bg-white">
+      <button mat-button [matMenuTriggerFor]="filterMenu"
+        class="bg-white px-4 py-2 rounded-lg flex items-center shadow-md transition duration-300 ease-in-out">
+        <mat-icon>filter_list</mat-icon>
+        <span class="ml-2">Filtrar Categorías</span>
+      </button>
+
+      <mat-menu #filterMenu="matMenu" class="filter-menu">
+        <button mat-menu-item (click)="getProducts()">
+          <span class="text-green-700 font-bold">Todas</span>
+        </button>
+        <button mat-menu-item (click)="getProducts('Hogar')">
+          <span class="text-green-700 font-bold">Hogar</span>
+        </button>
+        <button mat-menu-item (click)="getProducts('Estudio')">
+          <span class="text-green-600 font-bold">Estudio</span>
+        </button>
+        <button mat-menu-item (click)="getProducts('Libros')">
+          <span class="text-green-600 font-bold">Libros</span>
+        </button>
+
+        <button mat-menu-item (click)="getProducts('Deportes')">
+          <span class="text-green-600 font-bold">Deportes</span>
+        </button>
+      </mat-menu>
+    </div>
+
   </div>
 
   <div class="overflow-x-auto rounded-lg shadow-lg bg-white">
