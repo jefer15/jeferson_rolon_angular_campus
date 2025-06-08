@@ -1,46 +1,69 @@
-<mat-card>
-  <mat-card-header>
-    <mat-card-title>{{isEditMode ? 'Editar Producto' : 'Agregar Producto'}}</mat-card-title>
-  </mat-card-header>
-  <mat-card-content>
-    <form [formGroup]="productForm">
-      <mat-form-field>
-        <mat-label>Nombre</mat-label>
-        <input matInput formControlName="name" required>
-        <mat-error *ngIf="productForm.get('name')?.hasError('required')">El nombre es requerido</mat-error>
+<div class="p-6 bg-gray-300 min-h-screen flex items-center justify-center">
+  <div class="bg-white rounded-lg shadow-lg p-6 max-w-md w-full">
+    <h2 class="text-2xl font-bold text-gray-800 mb-6">
+      {{isEditMode ? 'Editar Producto' : 'Agregar Producto'}}
+    </h2>
+    <form [formGroup]="productForm" class="space-y-4">
+      <mat-form-field class="w-full">
+        <mat-label class="text-white">Nombre</mat-label>
+        <input matInput formControlName="name" required class="border-gray-300 rounded-lg">
+        <mat-error *ngIf="productForm.get('name')?.hasError('required')" class="text-red-600 text-sm">
+          El nombre es requerido
+        </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Descripción</mat-label>
-        <textarea matInput formControlName="description"></textarea>
-         <mat-error *ngIf="productForm.get('description')?.hasError('required')">La descripción es requerida</mat-error>
+
+      <mat-form-field class="w-full">
+        <mat-label class="text-white">Descripción</mat-label>
+        <textarea matInput formControlName="description" class="border-gray-300 rounded-lg min-h-[100px]"></textarea>
+        <mat-error *ngIf="productForm.get('description')?.hasError('required')" class="text-red-600 text-sm">
+          La descripción es requerida
+        </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Precio</mat-label>
-        <input matInput type="number" formControlName="price" required>
-        <mat-error *ngIf="productForm.get('price')?.hasError('required')">El precio es requerido</mat-error>
-        <mat-error *ngIf="productForm.get('price')?.hasError('min')">El precio debe ser positivo</mat-error>
+
+      <mat-form-field class="w-full">
+        <mat-label class="text-white">Precio</mat-label>
+        <input matInput type="number" formControlName="price" required class="border-gray-300 rounded-lg">
+        <mat-error *ngIf="productForm.get('price')?.hasError('required')" class="text-red-600 text-sm">
+          El precio es requerido
+        </mat-error>
+        <mat-error *ngIf="productForm.get('price')?.hasError('min')" class="text-red-600 text-sm">
+          El precio debe ser positivo
+        </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Categoría</mat-label>
-        <mat-select formControlName="category" required>
+
+      <mat-form-field class="w-full">
+        <mat-label class="text-white">Categoría</mat-label>
+        <mat-select formControlName="category" required class="border-gray-300 rounded-lg">
           <mat-option *ngFor="let category of categories" [value]="category">
             {{category}}
           </mat-option>
         </mat-select>
-        <mat-error *ngIf="productForm.get('category')?.hasError('required')">La categoría es requerida</mat-error>
+        <mat-error *ngIf="productForm.get('category')?.hasError('required')" class="text-red-600 text-sm">
+          La categoría es requerida
+        </mat-error>
       </mat-form-field>
-      <mat-form-field>
-        <mat-label>Disponibilidad</mat-label>
-        <mat-select formControlName="available" required>
+
+      <mat-form-field class="w-full">
+        <mat-label class="text-white">Disponibilidad</mat-label>
+        <mat-select formControlName="available" required class="border-gray-300 focus:border-[#424242] focus:ring-[#424242] rounded-lg">
           <mat-option [value]="true">Disponible</mat-option>
           <mat-option [value]="false">No Disponible</mat-option>
         </mat-select>
-        <mat-error *ngIf="productForm.get('available')?.hasError('required')">La disponibilidad es requerida</mat-error>
+        <mat-error *ngIf="productForm.get('available')?.hasError('required')" class="text-red-600 text-sm">
+          La disponibilidad es requerida
+        </mat-error>
       </mat-form-field>
-      <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="save()"  [disabled]="productForm.invalid">Guardar</button>
-        <button mat-raised-button color="warn" type="button" (click)="cancel()">Cancelar</button>
-      </mat-card-actions>
+
+      <div class="flex justify-end space-x-4 mt-6">
+        <button mat-raised-button type="button" (click)="cancel()"
+                class="bg-red-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-red-700 transition duration-300 ease-in-out transform hover:scale-105">
+          Cancelar
+        </button>
+        <button mat-raised-button color="primary" (click)="save()" [disabled]="productForm.invalid"
+                class="bg-[#424242] text-white px-6 py-3 rounded-lg shadow-md hover:bg-gray-700 transition duration-300 ease-in-out transform hover:scale-105">
+          Guardar
+        </button>
+      </div>
     </form>
-  </mat-card-content>
-</mat-card>
+  </div>
+</div>

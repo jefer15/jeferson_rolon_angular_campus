@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort, MatSortModule } from '@angular/material/sort';
@@ -22,7 +22,8 @@ import { CommonModule } from '@angular/common';
     CommonModule
   ],
   templateUrl: './product.component.html',
-  styleUrl: './product.component.scss'
+  styleUrl: './product.component.scss',
+  encapsulation: ViewEncapsulation.None,
 })
 export class ProductComponent implements OnInit {
   displayedColumns: string[] = ['id', 'name', 'description', 'price', 'category', 'available', 'actions'];
@@ -80,6 +81,10 @@ export class ProductComponent implements OnInit {
         });
       }
     });
+  }
+
+   ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
   }
 
 }

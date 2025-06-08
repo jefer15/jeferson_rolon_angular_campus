@@ -10,7 +10,6 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { ProductService } from '../../services/product/product.service';
 import { Product } from '../../models/product/product.model';
 import { MatOptionModule } from '@angular/material/core';
-import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 
 @Component({
@@ -24,7 +23,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatIconModule,
     CommonModule,
     MatOptionModule,
-    MatCardModule,
     MatSelectModule
   ],
   templateUrl: './product-form.component.html',
