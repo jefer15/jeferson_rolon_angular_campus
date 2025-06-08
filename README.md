@@ -1,27 +1,33 @@
-# JefersonRolonAngularCampus
+Jeferson Rolon Angular Campus
+This is a project developed with Angular, using Angular Material and Tailwind CSS for the user interface, along with SweetAlert2 for notifications. Below are the requirements and instructions for running the project locally.
+Prerequisites
+To run this project, you need the following:
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.17.
+Node.js: Version 18.x or higher (recommended). You can download it from nodejs.org.
+Angular CLI: Version 17.3.17. Install it globally with the following command if you don't have it: npm install -g @angular/cli@17.3.17
 
-## Development server
+Installation
+Follow these steps to set up and run the project locally:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Clone the repository:
+git clone https://github.com/jefer15/jeferson_rolon_angular_campus.git
+cd jeferson-rolon-angular-campus
 
-## Code scaffolding
+Install dependencies: Run the following command to install all the dependencies listed in package.json:
+npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Running the project
 
-## Build
+Start the development server: To run the project in development mode with auto-reloading, use:
+npm run start
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+This will run ng serve, and the application will be available at http://localhost:4200 by default.
 
-## Running unit tests
+Core dependencies
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Angular 17.3.0: Main framework for the application.
+Angular Material 17.3.10: Predefined UI components.
+Tailwind CSS 3.4.17: CSS framework for styling.
+SweetAlert2 11.22.0: For displaying alerts and notifications.
+RxJS 7.8.0: For handling reactive flows.
+TypeScript 5.4.2: For typed development.
